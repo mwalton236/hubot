@@ -29,3 +29,10 @@ default['hubot']['adapter'] = "campfire"
 default['hubot']['config'] = Hash.new
 default['hubot']['dependencies'] = Hash.new
 default['hubot']['hubot_scripts'] = Array.new
+
+case node['platform_family']
+when "debian"
+    default['nodejs']['install_method'] = "package"
+else
+    default['nodejs']['install_method'] = "source"
+end
